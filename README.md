@@ -1,120 +1,102 @@
-# 🛒 Supermarket Billing System
+# 🛒 Supermarket Management System (MySQL)
 
-A Python-based console application that simulates a real-world supermarket billing system with inventory management, data validation, and professional PDF invoice generation.
-
----
-
-## 📌 Project Overview
-
-This project is designed to replicate a real supermarket billing counter.  
-It allows multiple customers to shop in a single run, validates user inputs, updates stock dynamically, and generates professional PDF bills.
-
-The system follows an Object-Oriented Programming (OOP) approach for better structure and maintainability.
+A console-based Supermarket Management System built using Python and MySQL.  
+This project demonstrates backend development concepts including database design, transaction management, CRUD operations, reporting, and PDF invoice generation.
 
 ---
 
 ## 🚀 Features
 
-### 👤 Customer Features
-- Name validation (alphabets only)
-- Mobile number validation (exactly 10 digits)
-- Multiple item selection
-- Quantity validation (positive integers only)
-- Automatic stock validation
+### 🧾 Billing System
+- Create new customer bills
 - GST calculation (SGST + CGST)
-- Professional PDF bill generation
-- Automatic bill opening
-- View previously generated bills
+- Decimal-safe financial calculation
+- Transaction-safe bill generation (commit / rollback)
+- Invoice format: `INV-YYYY-0001`
+- PDF invoice generation
+- Auto-open generated PDF
+- View historical bills
 
-### 🛠 Admin Features
-- Password-protected admin access
-- Update product price
-- Update stock quantity
-- Real-time inventory updates
+### 📦 Inventory Management (Full CRUD)
+- Add new product
+- Update price & stock
+- Update product name
+- Safe delete (restricted if product used in bills)
+- Low stock alert (≤ 5 items)
 
----
+### 📊 Reporting
+- Daily Sales Report
+- Total bills per day
+- Daily revenue summary (SQL GROUP BY)
 
-## 🧾 Billing Details
-
-- Subtotal Calculation
-- SGST (9%)
-- CGST (9%)
-- Final Payable Amount
-- Unique Bill Number (timestamp-based)
-- A4 formatted PDF invoice
-
----
-
-## 🏗 Project Structure
-supermarket/
-│
-├── supermarket.py
-├── README.md
-├── bills_pdf/ (auto-generated)
-└── .gitignore
+### 🔒 Security
+- Database password stored using environment variable
+- Foreign key constraints enforced
+- Safe transaction handling
 
 ---
 
-## 🛠 Technologies Used
+## 🏗 Database Schema
 
-- Python 3
-- OOP Concepts
-- ReportLab (PDF generation)
-- Regex (Input validation)
-- Git & GitHub
+Tables:
 
----
+- `inventory`
+- `customers`
+- `bills`
+- `bill_items`
 
-## ⚙️ Installation & Setup
+Relationships:
 
-### 1️⃣ Clone Repository
-git clone https://github.com/Sharath67/supermarket-billing-system.git
+- One customer → Many bills
+- One bill → Many bill_items
+- One product → Many bill_items
 
-cd supermarket-billing-system
+Database schema is available in `schema.sql`.
 
-### 2️⃣ Install Required Library
-pip install reportlab
+To create database:
 
-### 3️⃣ Run Application
-python3 supermarket.py
+```bash
+mysql -u root -p < schema.sql
+🛠 Technologies Used
 
----
+Python 3
 
-## 🔐 Admin Credentials
-Password: admin123
+MySQL
 
+mysql-connector-python
 
----
+ReportLab
 
-## 📚 Key Learning Outcomes
+Regular Expressions
 
-- Object-Oriented Programming (OOP)
-- Input Data Validation
-- File Handling
-- PDF Invoice Generation
-- Inventory Management Logic
-- Git Version Control
-- Clean Code Structuring
+Git & GitHub
 
----
+⚙️ Setup Instructions
+1️⃣ Install Dependencies
+pip install mysql-connector-python reportlab
+2️⃣ Set Database Password (Linux / Mac)
+export DB_PASSWORD=your_mysql_password
+3️⃣ Run Application
+python3 supermarket_mysql.py
+🎯 Key Concepts Implemented
 
-## 📈 Future Improvements
+ACID Transactions
 
-- Persistent inventory storage using CSV or SQLite
-- Sales analytics dashboard
-- GUI version (Tkinter)
-- Daily revenue reporting
-- User authentication system
+Relational Database Design
 
----
+Foreign Key Integrity
 
-## 👨‍💻 Author
+Decimal Financial Calculations
 
-Sharath B M 
-Data analyst 
+Input Validation (Indian mobile format)
 
----
+CRUD Operations
 
-## 📄 License
+SQL Reporting
 
-This project is created for educational and internship demonstration purposes.
+PDF Invoice Generation
+
+👨‍💻 Author
+
+Sharath B M
+Data Analyst

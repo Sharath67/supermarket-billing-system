@@ -1,13 +1,13 @@
-# 🛒 Supermarket Management System (MySQL)
+#  Supermarket Management System (MySQL)
 
 A console-based Supermarket Management System built using Python and MySQL.  
 This project demonstrates backend development concepts including database design, transaction management, CRUD operations, reporting, and PDF invoice generation.
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 🧾 Billing System
+### Billing System
 - Create new customer bills
 - GST calculation (SGST + CGST)
 - Decimal-safe financial calculation
@@ -16,27 +16,26 @@ This project demonstrates backend development concepts including database design
 - PDF invoice generation
 - Auto-open generated PDF
 - View historical bills
-
-### 📦 Inventory Management (Full CRUD)
+### Inventory Management (Full CRUD)
 - Add new product
 - Update price & stock
 - Update product name
 - Safe delete (restricted if product used in bills)
 - Low stock alert (≤ 5 items)
 
-### 📊 Reporting
+### Reporting
 - Daily Sales Report
 - Total bills per day
 - Daily revenue summary (SQL GROUP BY)
 
-### 🔒 Security
+### Security
 - Database password stored using environment variable
 - Foreign key constraints enforced
 - Safe transaction handling
 
 ---
 
-## 🏗 Database Schema
+##  Database Schema
 
 Tables:
 
@@ -57,7 +56,7 @@ To create database:
 
 ```bash
 mysql -u root -p < schema.sql
-🛠 Technologies Used
+ Technologies Used
 
 Python 3
 
@@ -71,14 +70,14 @@ Regular Expressions
 
 Git & GitHub
 
-⚙️ Setup Instructions
-1️⃣ Install Dependencies
+ Setup Instructions
+1️ Install Dependencies
 pip install mysql-connector-python reportlab
-2️⃣ Set Database Password (Linux / Mac)
+2️ Set Database Password (Linux / Mac)
 export DB_PASSWORD=your_mysql_password
-3️⃣ Run Application
+3️ Run Application
 python3 supermarket_mysql.py
-🎯 Key Concepts Implemented
+ Key Concepts Implemented
 
 ACID Transactions
 
@@ -96,7 +95,7 @@ SQL Reporting
 
 PDF Invoice Generation
 
-👨‍💻 Author
+ Author
 
 Sharath B M
 Data Analyst
